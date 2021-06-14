@@ -1,5 +1,11 @@
 {% extends 'base.html'%}
+{%import 'macros.html' as macro %}
+
+
 {% block content%}
-{{pitches}}
+<div>
+    {{macro.displayPitches(pitches)}}
+</div>
+
 
 {% endblock %}
