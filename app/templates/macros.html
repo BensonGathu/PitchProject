@@ -1,6 +1,7 @@
 {% macro displayPitches(pitch_list)%}
 
    {% for pitch in pitch_list %}
+   
       <li>{{pitch.title}}</li>
       <li>{{pitch.pitch}}</li>
       <p>posted by {{pitch.name}} on {{pitch.posted}}</p>

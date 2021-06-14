@@ -122,6 +122,7 @@ class UpVotes(db.Model):
 class DownVotes(db.Model):
     __tablename__ = 'downvotes'
     id = db.Column(db.Integer,primary_key=True)
+    vote = db.Column(db.Integer)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
     def save(self):
