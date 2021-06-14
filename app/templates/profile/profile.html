@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
 {% block content %}
 <div class="container">
@@ -36,7 +37,10 @@
       <input type="submit">
     </form>
 {% endif %}
-<h2>{{user.username}}:</h2>
-{{pitches}}
+
+<div>
+  {{macro.displayPersonalPitches(pitches)}}
+</div>
+
 
 {% endblock %}

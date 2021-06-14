@@ -20,7 +20,15 @@
 
 {% macro displayComments(comments_list)%}
       {% for comment in comment_list %}
-         <p>{{comment.get_comments()}}</p>
+         <p>{{comment.comment}}</p>
          <blockquote>{{comment.posted}}</blockquote>
+      {% endfor%}
+{% endmacro %}
+
+{% macro displayPersonalPitches(pitch_list)%}
+      {% for pitch in pitch_list %}
+         <li>{{pitch.title}}</li>
+         <p>{{pitch.pitch}}</p>
+
       {% endfor%}
 {% endmacro %}
