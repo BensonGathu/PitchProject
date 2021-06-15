@@ -15,7 +15,7 @@ def index():
     it_pitches = Pitch.query.filter_by(category="IT World Pitch").all()
     pickup_pitches = Pitch.query.filter_by(category="Pickup Lines").all()
     political_pitches = Pitch.query.filter_by(category="Political Pitch").all()
-    return render_template("index.html",title=title,pitches=interview_pitches)
+    return render_template("index.html",title=title,interview_pitches=interview_pitches,products_pitches=products_pitches,it_pitches=it_pitches,pickup_pitches=pickup_pitches,political_pitches=political_pitches)
 
 @main.route("/pitch")
 def pitch():
