@@ -10,8 +10,12 @@ from .. import db,photos
 @main.route("/",methods = ['GET','POST'])
 def index():
     title = "Lets get Pitched"
-    pitches = Pitch.query.filter_by().all()
-    return render_template("index.html",title=title,pitches=pitches)
+    interview_pitches = Pitch.query.filter_by(category="Interview Pitch").all()
+    products_pitches = Pitch.query.filter_by(category="Products Pitch").all()
+    it_pitches = Pitch.query.filter_by(category="IT World Pitch").all()
+    pickup_pitches = Pitch.query.filter_by(category="Pickup Lines").all()
+    political_pitches = Pitch.query.filter_by(category="Political Pitch").all()
+    return render_template("index.html",title=title,pitches=interview_pitches)
 
 @main.route("/pitch")
 def pitch():
@@ -98,3 +102,9 @@ def comment_pitch(pitch_id):
         comment_object.save_comment()
         return redirect(url_for(".comment_pitch",pitch_id=pitch_id))
     return render_template("comments.html",comment_form=form,pitch=pitch,all_comments=all_comments)
+
+# @main.route("/comment/<int:pitch_id>",methods=["POST","GET"])
+# @login_required
+# def upvote(pitch_id):
+#     pitch = Pitch.query.get(pitch_id)
+    

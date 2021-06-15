@@ -1,23 +1,23 @@
+
 {% macro displayPitches(pitch_list)%}
 
+ 
    {% for pitch in pitch_list %}
-   
-      <li>{{pitch.title}}</li>
-      <li>{{pitch.pitch}}</li>
-      <p>posted by {{pitch.name}} on {{pitch.posted}}</p>
+   <div class="container" style="background-color: antiquewhite;">
+      <div class="row">
+      <div class="card-body">
+      <h5>{{pitch.title}}</h5>
+      <p class="card-text">{{pitch.pitch}}</p>
+      <p>posted by {{pitch.name}} on {{pitch.posted}}</p>  
+      
       <a href="{{url_for('main.comment_pitch',pitch_id=pitch.id)}}"><button type="button" class="btn btn-success">Comments</button></a>
-
-      <!-- <div>
-         <p>{{pitch}}</p><br>
-         <p>{{pitch}}</p>
-
-      </div>
-      <div>
-         <p>{{pitch.comments}}</p>
-      </div> -->
+   </div>
+</div>
    {% endfor %}
-
+</div>
+</div>
 {% endmacro %}
+
 
 {% macro displayComments(comments_list)%}
       {% for comment in comment_list %}
@@ -25,6 +25,9 @@
          <blockquote>{{comment.posted}}</blockquote>
       {% endfor%}
 {% endmacro %}
+
+
+
 
 {% macro displayPersonalPitches(pitch_list)%}
       {% for pitch in pitch_list %}
